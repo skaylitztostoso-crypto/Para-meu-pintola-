@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Surpresa 💖</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+/* CORAÇÕES CAINDO */
+.heart {
+  position: absolute;
+  color: rgba(255, 105, 180, 0.6);
+  font-size: 20px;
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* CONTAINERS */
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  color: #ff1493;
+}
+
+p {
+  color: #555;
+}
+
+input {
+  padding: 12px;
+  width: 85%;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #ff69b4;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff1493;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* TELA DE LOADING */
+.loading {
+  display: none;
+}
+
+.runner {
+  font-size: 50px;
+  animation: run 1s infinite alternate;
+}
+
+@keyframes run {
+  from { transform: translateX(-40px); }
+  to { transform: translateX(40px); }
+}
+
+/* SURPRESA */
+.surpresa {
+  display: none;
+}
+
+.chicks {
+  font-size: 45px;
+  animation: bounce 1.2s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CORAÇÕES -->
+<script>
+for (let i = 0; i < 20; i++) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDelay = Math.random() * 6 + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+<!-- LOGIN -->
+<div class="container" id="login">
+  <h1>💖 Surpresa 💖</h1>
+  <p>Para desbloquear fale qual apelido o seu namorado mais gosta que você o chame</p>
+  <input type="password" id="senha" placeholder="Digite aqui">
+  <br>
+  <button onclick="verificar()">Confirmar</button>
+  <div class="error" id="erro"></div>
+</div>
+
+<!-- LOADING -->
+<div class="container loading" id="loading">
+  <h1>Verificando...</h1>
+  <p>Espere um pouquinho 💕</p>
+  <div class="runner">🐥💨</div>
+</div>
+
+<!-- SURPRESA -->
+<div class="container surpresa" id="surpresa">
+  <h1>Eu te amo, pinta 💕</h1>
+  <div class="chicks">
+    🐥 🐥 🐥 🐥 🐥  
+    <br>
+    🐥 🐥 🐥 🐥 🐥
+  </div>
+</div>
+
+<script>
+function verificar() {
+  const senha = document.getElementById("senha").value.toLowerCase();
+  const erro = document.getElementById("erro");
+
+  if (senha === "pintinho") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("loading").style.display = "block";
+
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("surpresa").style.display = "block";
+    }, 2500);
+
+  } else {
+    erro.innerText = "❌ Acesso negado";
+  }
+}
+</script>
+
+</body>
+</html>
