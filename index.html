@@ -158,6 +158,39 @@ for (let i = 0; i < 20; i++) {
     <br>
     🐥 🐥 🐥 🐥 🐥
   </div>
+
+  <p style="margin-top:20px; font-size:16px; color:#555;">
+    Preparando uma surpresa final... 💖
+  </p>
+</div> 
+  <div class="container surpresa" id="jogar">
+  <h1 style="font-size:50px; color:#ff1493;">
+    BORA JOGAR? 🎮🔥
+  </h1>
+
+  <p style="font-size:20px; margin-bottom:25px;">
+    Bora um Free Fire comigo? 😏💘
+  </p>
+
+  <a href="freefire://" style="
+    display:inline-block;
+    padding:18px 35px;
+    background:#ff69b4;
+    color:white;
+    font-size:22px;
+    border-radius:35px;
+    text-decoration:none;
+    font-weight:bold;
+  ">
+    🔥 Abrir Free Fire
+  </a>
+
+  <p style="margin-top:15px; font-size:14px;">
+    Se não abrir automaticamente 👇<br>
+    <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth">
+      Abrir na Play Store
+    </a>
+  </p>
 </div>
 
 <script>
@@ -172,13 +205,15 @@ function verificar() {
     setTimeout(() => {
       document.getElementById("loading").style.display = "none";
       document.getElementById("surpresa").style.display = "block";
-    }, 2500);
 
+      setTimeout(() => {
+        document.getElementById("surpresa").style.display = "none";
+        document.getElementById("jogar").style.display = "block";
+      }, 3000);
+
+    }, 2500);
   } else {
     erro.innerText = "❌ Acesso negado";
   }
 }
 </script>
-
-</body>
-</html>
